@@ -1,0 +1,32 @@
+{
+  "name": "SLExtensionKit",
+  "version": "0.1.0",
+  "summary": "This is base tool of SLExtensionKit. Support iOS 14 and above",
+  "description": "0.1.0 第一版基础代码整理",
+  "homepage": "https://github.com/shirleySmile/SLExtensionKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "shirley": "276482207@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/shirleySmile/SLExtensionKit",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2"
+  ],
+  "source_files": "SLExtensionKit/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "AVFoundation"
+  ],
+  "swift_version": "5.2"
+}
