@@ -1,5 +1,5 @@
 //
-//  DeviceModeType.swift
+//  SLDeviceModeType.swift
 //  Pods
 //
 //  Created by muwa on 2025/8/29.
@@ -8,7 +8,7 @@
 import Foundation
 
 
-public enum DeviceModeType: String {
+public enum SLDeviceModeType: String {
     
     case iPod_touch_1 = "iPod Touch 1"
     case iPod_touch_2 = "iPod Touch 2"
@@ -134,9 +134,9 @@ public enum DeviceModeType: String {
 
 
 
-extension DeviceModeType {
+extension SLDeviceModeType {
     
-    static var nameType: DeviceModeType? {
+    static var nameType: SLDeviceModeType? {
         
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -268,7 +268,7 @@ extension DeviceModeType {
 
 
 
-extension DeviceModeType {
+extension SLDeviceModeType {
     
     //MARK: 电池续航能力------------------------------------------------
     public func batteryUsageHours() -> Int {

@@ -1,5 +1,5 @@
 //
-//  DeviceInfo.swift
+//  SLDeviceInfo.swift
 //  SWToolKit
 //
 //  Created by shirley on 2022/2/25.
@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class DeviceInfo : NSObject {
+class SLDeviceInfo : NSObject {
     
     /// ip地址
     static let ipAddress:String = {
