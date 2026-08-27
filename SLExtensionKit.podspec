@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SLExtensionKit'
   s.version          = '0.1.0'
-  s.summary          = 'This is base tool of SLExtensionKit. Support iOS 14 and above'
+  s.summary          = 'This is base tool of SLExtensionKit. Support iOS 15 and above'
   
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -28,14 +28,14 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/shirleySmile/SLExtensionKit', :tag => s.version.to_s }
   
   
-  s.ios.deployment_target = '14.0'
+  s.ios.deployment_target = '15.0'
   s.swift_versions = ['5.0', '5.1', '5.2']
   
   s.source_files = 'SLExtensionKit/Classes/**/*'
     
   # s.public_header_files = 'Pod/Classes/**/*.h'
   
-  s.frameworks = 'UIKit', 'AVFoundation'
+  s.frameworks = 'StoreKit', 'AuthenticationServices'
   
   
   # s.dependency 'AFNetworking', '~> 2.3'

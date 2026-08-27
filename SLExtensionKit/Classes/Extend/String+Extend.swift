@@ -7,7 +7,8 @@
 
 import Foundation
 import CommonCrypto
-import UIKit
+import CryptoKit
+
 
 extension String {
     
@@ -79,10 +80,10 @@ extension String {
     
     /// 系统md5方法
     public var md5:String {
-        let utf8 = cString(using: .utf8)
-        var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-        CC_MD5(utf8, CC_LONG(utf8!.count - 1), &digest)
-        return digest.reduce("") { $0 + String(format:"%02X", $1) }
+        let digest = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
+        return digest.map {
+            String(format: "%02hhx", $0)
+        }.joined()
     }
     
     
@@ -123,19 +124,6 @@ extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
-    /// 用浏览器打开网址
-    public func openURL(){
-        let open:String = self.trimmingWhitespace()
-        if open.count > 0 && UIApplication.shared.canOpenURL(URL.init(string: open)!) {
-            UIApplication.shared.open(URL.init(string: open)!)
-        }
-    }
-    
-    /// 获取字符串的size
-    public func size(width:Float, height:Float = MAXFLOAT, font:UIFont) -> CGSize{
-        let rect = self.boundingRect(with: CGSize(width: CGFloat(width), height: CGFloat(height)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:font], context: nil)
-        return rect.size
-    }
     ///判断是否是手机号
     public func isPhoneNumber() -> Bool{
         //        let  MOBILE = "^1(3[0-9]|4[579]|5[0-35-9]|6[6]|7[0-35-9]|8[0-9]|9[89])\\d{8}$"
@@ -337,6 +325,17 @@ extension String {
         let random:String = uuid.substring(location: randomStartIndex, length: num)
         return random
     }
+    
+    /// 字符串转换成日期 
+    public func toDate(format:String, locale:String? = "en_GB") -> Date? {
+        let dataFmt = DateFormatter()
+        if let locale = locale, locale.count > 0 {
+            dataFmt.locale = Locale.init(identifier: locale)
+        }
+        dataFmt.dateFormat = format
+        let date = dataFmt.date(from: self)
+        return date
+    }
 }
 
 
@@ -523,6 +522,12 @@ extension CGRect {
     public func toString() -> String {
         return "{{ \(self.minX) , \(self.minY) } , { \(self.width) , \(self.height) }}"
     }
-    
 }
 
+
+
+extension Substring {
+    func toString() -> String {
+        return String(self)
+    }
+}
