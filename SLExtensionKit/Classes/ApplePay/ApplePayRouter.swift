@@ -60,7 +60,7 @@ import Foundation
 enum ApplePayServiceFactory {
     
     static func makeService() -> ApplePayService {
-        if #available(iOS 26.0, *) {
+        if #available(iOS 15.0, *) {
             /// iOS 26 及以上使用 StoreKit 1
             return ApplyPaymentHandle()
         } else {

@@ -19,14 +19,12 @@
     "ios": "15.0"
   },
   "swift_versions": [
-    "5.0",
-    "5.1",
-    "5.2"
+    "5.0"
   ],
   "source_files": "SLExtensionKit/Classes/**/*",
   "frameworks": [
     "StoreKit",
     "AuthenticationServices"
   ],
-  "swift_version": "5.2"
+  "swift_version": "5.0"
 }
