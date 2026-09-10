@@ -1,6 +1,0 @@
-framework module SLExtensionKit {
-  umbrella header "SLExtensionKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
