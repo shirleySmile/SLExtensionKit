@@ -137,9 +137,9 @@ public class ApplePayManager: NSObject {
         }
     }
     
-    /// 刷新苹果内购的数据
+    /// 刷新/预加载苹果内购的商品信息（本地缓存，购买时优先使用）
     public func reloadProductInfo(ids: [String]) {
-        applePayLog.add(type: .product, title: "刷新本地票据", des: "票据Id:\(ids.toJson())")
+        self.service.reloadProducts(productIds: ids)
     }
     
     /// 日志

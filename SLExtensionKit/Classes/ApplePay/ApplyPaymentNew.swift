@@ -41,6 +41,9 @@ class ApplyPaymentNew: NSObject, ApplePayService {
     /// 当前购买使用的 token
     private var currentOrderToken: UUID?
     
+    /// 本地持有的可购买商品信息缓存（productId -> Product）
+    private var productCache: [String: Product] = [:]
+    
     deinit {
         /// 删除交易队列观察者
         SKPaymentQueue.default().remove(self)
@@ -85,8 +88,35 @@ class ApplyPaymentNew: NSObject, ApplePayService {
         self.currentOrderToken = token
         self.orderMap[token] = OrderRecord(orderId: orderId, createdAt: Date())
         Self.persistOrderMap(self.orderMap)
-        self.purchaseTask = Task { [weak self] in
-            await self?.fetchAndPurchase(productId: productId, token: token)
+        if let product = self.productCache[productId] {
+            /// 本地已有缓存商品，直接用本地最新的商品信息购买
+            applePayLog.add(type: .product, title: "商品信息", des: "使用本地缓存商品直接购买")
+            self.purchaseTask = Task { [weak self] in
+                await self?.purchase(product, token: token)
+            }
+        } else {
+            /// 本地没有缓存商品，先获取商品信息再购买
+            self.purchaseTask = Task { [weak self] in
+                await self?.fetchAndPurchase(productId: productId, token: token)
+            }
+        }
+    }
+    
+    /// 刷新/预加载商品信息，本地缓存供购买时直接使用
+    func reloadProducts(productIds: [String]) {
+        applePayLog.add(type: .product, title: "刷新商品信息", des: "商品Id:\(productIds.toJson())")
+        guard !productIds.isEmpty else { return }
+        Task { [weak self] in
+            do {
+                let products = try await Product.products(for: productIds)
+                guard let self else { return }
+                for product in products {
+                    self.productCache[product.id] = product
+                }
+                applePayLog.add(type: .product, title: "刷新商品信息", des: "刷新完成:\(products.count)个商品")
+            } catch {
+                applePayLog.add(type: .product, title: "刷新商品信息", des: "刷新失败\(error.localizedDescription)")
+            }
         }
     }
     
@@ -139,23 +169,10 @@ class ApplyPaymentNew: NSObject, ApplePayService {
         var map: [UUID: OrderRecord] = [:]
         for (key, value) in raw {
             guard let uuid = UUID(uuidString: key) else { continue }
-            let record: OrderRecord?
-            if let data = value.data(using: .utf8) {
-                record = try? JSONDecoder().decode(OrderRecord.self, from: data)
-            } else {
-                record = nil
-            }
-            if let record {
-                if record.createdAt >= deadline {
-                    map[uuid] = record
-                }
-            } else {
-                // 兼容旧格式（value 直接为 orderId 字符串）
-                let legacy = OrderRecord(orderId: value, createdAt: Date())
-                if legacy.createdAt >= deadline {
-                    map[uuid] = legacy
-                }
-            }
+            guard let data = value.data(using: .utf8),
+                  let record = try? JSONDecoder().decode(OrderRecord.self, from: data),
+                  record.createdAt >= deadline else { continue }
+            map[uuid] = record
         }
         return map
     }
@@ -184,6 +201,7 @@ class ApplyPaymentNew: NSObject, ApplePayService {
                 self.failResultHandle(type: .noOrder, msg: "没有找到指定商品", token: token)
                 return
             }
+            self.productCache[product.id] = product
             await self.purchase(product, token: token)
         } catch {
             guard !Task.isCancelled else { return }

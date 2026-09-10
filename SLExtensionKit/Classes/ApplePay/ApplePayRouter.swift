@@ -27,6 +27,9 @@ import Foundation
     /// 恢复购买
     func restore()
     
+    /// 刷新/预加载商品信息（本地缓存，购买时优先使用）
+    func reloadProducts(productIds: [String])
+    
     /// 获取本地购买凭证
     func getLocalReceiptInfo() -> String?
     
@@ -60,12 +63,7 @@ import Foundation
 enum ApplePayServiceFactory {
     
     static func makeService() -> ApplePayService {
-        if #available(iOS 15.0, *) {
-            /// iOS 26 及以上使用 StoreKit 1
-            return ApplyPaymentHandle()
-        } else {
-            /// iOS 15 ~ 25（含 iOS 18 及以下）使用 StoreKit 2
-            return ApplyPaymentNew()
-        }
+        /// iOS 15 及以上统一使用 StoreKit 2（StoreKit 1 老代码仅支持到 iOS 18，已废弃）
+        return ApplyPaymentNew()
     }
 }
