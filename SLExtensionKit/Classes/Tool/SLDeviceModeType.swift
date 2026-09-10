@@ -118,8 +118,67 @@ public enum SLDeviceModeType: String {
     case iPad_mini_a17_pro = "iPad Mini (A17 Pro)"
     
     /// mac 型号
-    
-    
+    /// MacBook Air
+    case macbook_air_m1 = "MacBook Air (M1, 2020)"
+    case macbook_air_m2_13 = "MacBook Air (13-inch, M2, 2022)"
+    case macbook_air_m2_15 = "MacBook Air (15-inch, M2, 2023)"
+    case macbook_air_m3_13 = "MacBook Air (13-inch, M3, 2024)"
+    case macbook_air_m3_15 = "MacBook Air (15-inch, M3, 2024)"
+    case macbook_air_m4_13 = "MacBook Air (13-inch, M4, 2025)"
+    case macbook_air_m4_15 = "MacBook Air (15-inch, M4, 2025)"
+    case macbook_air_m5_13 = "MacBook Air (13-inch, M5, 2026)"
+    case macbook_air_m5_15 = "MacBook Air (15-inch, M5, 2026)"
+
+    /// MacBook Pro
+    case macbook_pro_13_m1 = "MacBook Pro (13-inch, M1, 2020)"
+    case macbook_pro_14_m1_pro = "MacBook Pro (14-inch, M1 Pro, 2021)"
+    case macbook_pro_14_m1_max = "MacBook Pro (14-inch, M1 Max, 2021)"
+    case macbook_pro_16_m1_pro = "MacBook Pro (16-inch, M1 Pro, 2021)"
+    case macbook_pro_16_m1_max = "MacBook Pro (16-inch, M1 Max, 2021)"
+    case macbook_pro_13_m2 = "MacBook Pro (13-inch, M2, 2022)"
+    case macbook_pro_14_m2_pro = "MacBook Pro (14-inch, M2 Pro, 2023)"
+    case macbook_pro_14_m2_max = "MacBook Pro (14-inch, M2 Max, 2023)"
+    case macbook_pro_16_m2_pro = "MacBook Pro (16-inch, M2 Pro, 2023)"
+    case macbook_pro_16_m2_max = "MacBook Pro (16-inch, M2 Max, 2023)"
+    case macbook_pro_14_m3 = "MacBook Pro (14-inch, M3, 2023)"
+    case macbook_pro_14_m3_pro = "MacBook Pro (14-inch, M3 Pro, 2023)"
+    case macbook_pro_14_m3_max = "MacBook Pro (14-inch, M3 Max, 2023)"
+    case macbook_pro_16_m3_pro = "MacBook Pro (16-inch, M3 Pro, 2023)"
+    case macbook_pro_16_m3_max = "MacBook Pro (16-inch, M3 Max, 2023)"
+    case macbook_pro_14_m4 = "MacBook Pro (14-inch, M4, 2024)"
+    case macbook_pro_14_m4_pro = "MacBook Pro (14-inch, M4 Pro, 2024)"
+    case macbook_pro_14_m4_max = "MacBook Pro (14-inch, M4 Max, 2024)"
+    case macbook_pro_16_m4_pro = "MacBook Pro (16-inch, M4 Pro, 2024)"
+    case macbook_pro_16_m4_max = "MacBook Pro (16-inch, M4 Max, 2024)"
+    case macbook_pro_14_m5 = "MacBook Pro (14-inch, M5, 2025)"
+    case macbook_pro_14_m5_pro = "MacBook Pro (14-inch, M5 Pro, 2026)"
+    case macbook_pro_14_m5_max = "MacBook Pro (14-inch, M5 Max, 2026)"
+    case macbook_pro_16_m5_pro = "MacBook Pro (16-inch, M5 Pro, 2026)"
+    case macbook_pro_16_m5_max = "MacBook Pro (16-inch, M5 Max, 2026)"
+
+    /// Mac mini
+    case mac_mini_m1 = "Mac mini (M1, 2020)"
+    case mac_mini_m2 = "Mac mini (M2, 2023)"
+    case mac_mini_m2_pro = "Mac mini (M2 Pro, 2023)"
+    case mac_mini_m4 = "Mac mini (M4, 2024)"
+    case mac_mini_m4_pro = "Mac mini (M4 Pro, 2024)"
+
+    /// iMac
+    case imac_24_m1 = "iMac (24-inch, M1, 2021)"
+    case imac_24_m3 = "iMac (24-inch, M3, 2023)"
+    case imac_24_m4 = "iMac (24-inch, M4, 2024)"
+
+    /// Mac Studio
+    case mac_studio_m1_max = "Mac Studio (M1 Max, 2022)"
+    case mac_studio_m1_ultra = "Mac Studio (M1 Ultra, 2022)"
+    case mac_studio_m2_max = "Mac Studio (M2 Max, 2023)"
+    case mac_studio_m2_ultra = "Mac Studio (M2 Ultra, 2023)"
+    case mac_studio_m3_ultra = "Mac Studio (M3 Ultra, 2025)"
+    case mac_studio_m4_max = "Mac Studio (M4 Max, 2025)"
+
+    /// Mac Pro
+    case mac_pro_m2_ultra = "Mac Pro (M2 Ultra, 2023)"
+
 //    ///appleTV
 //    case appleTV_2 = "AppleTV2"
 //    case appleTV_3 = "AppleTV3"
@@ -251,7 +310,69 @@ extension SLDeviceModeType {
         case "iPad11,1", "iPad11,2":  return .iPad_mini_5
         case "iPad14,1", "iPad14,2":  return .iPad_mini_6
         case "iPad16,1", "iPad16,2":  return .iPad_mini_a17_pro
-            
+
+            /// mac 型号
+            /// MacBook Air
+        case "MacBookAir10,1":  return .macbook_air_m1
+        case "Mac14,2":  return .macbook_air_m2_13
+        case "Mac14,15":  return .macbook_air_m2_15
+        case "Mac15,12":  return .macbook_air_m3_13
+        case "Mac15,13":  return .macbook_air_m3_15
+        case "Mac16,12":  return .macbook_air_m4_13
+        case "Mac16,13":  return .macbook_air_m4_15
+        case "Mac17,3":  return .macbook_air_m5_13
+        case "Mac17,4":  return .macbook_air_m5_15
+
+            /// MacBook Pro
+        case "MacBookPro17,1":  return .macbook_pro_13_m1
+        case "MacBookPro18,3":  return .macbook_pro_14_m1_pro
+        case "MacBookPro18,4":  return .macbook_pro_14_m1_max
+        case "MacBookPro18,1":  return .macbook_pro_16_m1_pro
+        case "MacBookPro18,2":  return .macbook_pro_16_m1_max
+        case "Mac14,7":  return .macbook_pro_13_m2
+        case "Mac14,9":  return .macbook_pro_14_m2_pro
+        case "Mac14,5":  return .macbook_pro_14_m2_max
+        case "Mac14,10":  return .macbook_pro_16_m2_pro
+        case "Mac14,6":  return .macbook_pro_16_m2_max
+        case "Mac15,3":  return .macbook_pro_14_m3
+        case "Mac15,6":  return .macbook_pro_14_m3_pro
+        case "Mac15,8", "Mac15,10":  return .macbook_pro_14_m3_max
+        case "Mac15,7":  return .macbook_pro_16_m3_pro
+        case "Mac15,9", "Mac15,11":  return .macbook_pro_16_m3_max
+        case "Mac16,1":  return .macbook_pro_14_m4
+        case "Mac16,6":  return .macbook_pro_14_m4_pro
+        case "Mac16,8":  return .macbook_pro_14_m4_max
+        case "Mac16,5":  return .macbook_pro_16_m4_pro
+        case "Mac16,7":  return .macbook_pro_16_m4_max
+        case "Mac17,2":  return .macbook_pro_14_m5
+        case "Mac17,7":  return .macbook_pro_14_m5_pro
+        case "Mac17,9":  return .macbook_pro_14_m5_max
+        case "Mac17,6":  return .macbook_pro_16_m5_pro
+        case "Mac17,8":  return .macbook_pro_16_m5_max
+
+            /// Mac mini
+        case "Macmini9,1":  return .mac_mini_m1
+        case "Mac14,3":  return .mac_mini_m2
+        case "Mac14,12":  return .mac_mini_m2_pro
+        case "Mac16,10":  return .mac_mini_m4
+        case "Mac16,11":  return .mac_mini_m4_pro
+
+            /// iMac
+        case "iMac21,1", "iMac21,2":  return .imac_24_m1
+        case "Mac15,4", "Mac15,5":  return .imac_24_m3
+        case "Mac16,2", "Mac16,3":  return .imac_24_m4
+
+            /// Mac Studio
+        case "Mac13,1":  return .mac_studio_m1_max
+        case "Mac13,2":  return .mac_studio_m1_ultra
+        case "Mac14,13":  return .mac_studio_m2_max
+        case "Mac14,14":  return .mac_studio_m2_ultra
+        case "Mac15,14":  return .mac_studio_m3_ultra
+        case "Mac16,9":  return .mac_studio_m4_max
+
+            /// Mac Pro
+        case "Mac14,8":  return .mac_pro_m2_ultra
+
         /**    ///appleTV
         case "AppleTV2,1":  return .appleTV_2
         case "AppleTV3,1","AppleTV3,2":  return .appleTV_3
@@ -320,6 +441,24 @@ extension SLDeviceModeType {
         case .iPhone_17_air: return 27
         case .iPhone_17_pro: return 33
         case .iPhone_17_pro_max: return 37
+        /// MacBook Air
+        case .macbook_air_m1, .macbook_air_m2_13, .macbook_air_m2_15, .macbook_air_m3_13, .macbook_air_m3_15, .macbook_air_m4_13, .macbook_air_m4_15, .macbook_air_m5_13, .macbook_air_m5_15: return 18
+        /// MacBook Pro
+        case .macbook_pro_13_m1, .macbook_pro_13_m2: return 20
+        case .macbook_pro_14_m1_pro, .macbook_pro_14_m1_max: return 17
+        case .macbook_pro_16_m1_pro, .macbook_pro_16_m1_max: return 21
+        case .macbook_pro_14_m2_pro, .macbook_pro_14_m2_max: return 18
+        case .macbook_pro_16_m2_pro, .macbook_pro_16_m2_max: return 22
+        case .macbook_pro_14_m3, .macbook_pro_14_m3_pro, .macbook_pro_14_m3_max, .macbook_pro_16_m3_pro, .macbook_pro_16_m3_max: return 22
+        case .macbook_pro_14_m4, .macbook_pro_14_m5: return 24
+        case .macbook_pro_14_m4_pro, .macbook_pro_14_m5_pro: return 22
+        case .macbook_pro_14_m4_max: return 18
+        case .macbook_pro_14_m5_max: return 20
+        case .macbook_pro_16_m4_pro, .macbook_pro_16_m5_pro: return 24
+        case .macbook_pro_16_m4_max: return 21
+        case .macbook_pro_16_m5_max: return 22
+        /// 台式 Mac 无电池
+        case .mac_mini_m1, .mac_mini_m2, .mac_mini_m2_pro, .mac_mini_m4, .mac_mini_m4_pro, .imac_24_m1, .imac_24_m3, .imac_24_m4, .mac_studio_m1_max, .mac_studio_m1_ultra, .mac_studio_m2_max, .mac_studio_m2_ultra, .mac_studio_m3_ultra, .mac_studio_m4_max, .mac_pro_m2_ultra: return 0
         }
     }
     
@@ -422,6 +561,18 @@ extension SLDeviceModeType {
         case .iPhone_17_air: return 3149
         case .iPhone_17_pro:  return 4252
         case .iPhone_17_pro_max: return 5088
+        /// MacBook Air
+        case .macbook_air_m1: return 4377
+        case .macbook_air_m2_13, .macbook_air_m3_13: return 4614
+        case .macbook_air_m2_15, .macbook_air_m3_15: return 5833
+        case .macbook_air_m4_13, .macbook_air_m4_15, .macbook_air_m5_13, .macbook_air_m5_15: return 4719
+        /// MacBook Pro
+        case .macbook_pro_13_m1, .macbook_pro_13_m2: return 5105
+        case .macbook_pro_14_m1_pro, .macbook_pro_14_m1_max, .macbook_pro_14_m2_pro, .macbook_pro_14_m2_max, .macbook_pro_14_m3, .macbook_pro_14_m3_pro, .macbook_pro_14_m3_max: return 6140
+        case .macbook_pro_14_m4, .macbook_pro_14_m4_pro, .macbook_pro_14_m4_max, .macbook_pro_14_m5, .macbook_pro_14_m5_pro, .macbook_pro_14_m5_max: return 6351
+        case .macbook_pro_16_m1_pro, .macbook_pro_16_m1_max, .macbook_pro_16_m2_pro, .macbook_pro_16_m2_max, .macbook_pro_16_m3_pro, .macbook_pro_16_m3_max, .macbook_pro_16_m4_pro, .macbook_pro_16_m4_max, .macbook_pro_16_m5_pro, .macbook_pro_16_m5_max: return 8772
+        /// 台式 Mac 无电池
+        case .mac_mini_m1, .mac_mini_m2, .mac_mini_m2_pro, .mac_mini_m4, .mac_mini_m4_pro, .imac_24_m1, .imac_24_m3, .imac_24_m4, .mac_studio_m1_max, .mac_studio_m1_ultra, .mac_studio_m2_max, .mac_studio_m2_ultra, .mac_studio_m3_ultra, .mac_studio_m4_max, .mac_pro_m2_ultra: return 0
 
         }
         
@@ -512,6 +663,47 @@ extension SLDeviceModeType {
             return "A19"
         case .iPhone_17_air, .iPhone_17_pro, .iPhone_17_pro_max:
             return "A19 Pro"
+        /// MacBook Air
+        case .macbook_air_m1: return "M1"
+        case .macbook_air_m2_13, .macbook_air_m2_15: return "M2"
+        case .macbook_air_m3_13, .macbook_air_m3_15: return "M3"
+        case .macbook_air_m4_13, .macbook_air_m4_15: return "M4"
+        case .macbook_air_m5_13, .macbook_air_m5_15: return "M5"
+        /// MacBook Pro
+        case .macbook_pro_13_m1: return "M1"
+        case .macbook_pro_14_m1_pro, .macbook_pro_16_m1_pro: return "M1 Pro"
+        case .macbook_pro_14_m1_max, .macbook_pro_16_m1_max: return "M1 Max"
+        case .macbook_pro_13_m2: return "M2"
+        case .macbook_pro_14_m2_pro, .macbook_pro_16_m2_pro: return "M2 Pro"
+        case .macbook_pro_14_m2_max, .macbook_pro_16_m2_max: return "M2 Max"
+        case .macbook_pro_14_m3: return "M3"
+        case .macbook_pro_14_m3_pro, .macbook_pro_16_m3_pro: return "M3 Pro"
+        case .macbook_pro_14_m3_max, .macbook_pro_16_m3_max: return "M3 Max"
+        case .macbook_pro_14_m4: return "M4"
+        case .macbook_pro_14_m4_pro, .macbook_pro_16_m4_pro: return "M4 Pro"
+        case .macbook_pro_14_m4_max, .macbook_pro_16_m4_max: return "M4 Max"
+        case .macbook_pro_14_m5: return "M5"
+        case .macbook_pro_14_m5_pro, .macbook_pro_16_m5_pro: return "M5 Pro"
+        case .macbook_pro_14_m5_max, .macbook_pro_16_m5_max: return "M5 Max"
+        /// Mac mini
+        case .mac_mini_m1: return "M1"
+        case .mac_mini_m2: return "M2"
+        case .mac_mini_m2_pro: return "M2 Pro"
+        case .mac_mini_m4: return "M4"
+        case .mac_mini_m4_pro: return "M4 Pro"
+        /// iMac
+        case .imac_24_m1: return "M1"
+        case .imac_24_m3: return "M3"
+        case .imac_24_m4: return "M4"
+        /// Mac Studio
+        case .mac_studio_m1_max: return "M1 Max"
+        case .mac_studio_m1_ultra: return "M1 Ultra"
+        case .mac_studio_m2_max: return "M2 Max"
+        case .mac_studio_m2_ultra: return "M2 Ultra"
+        case .mac_studio_m3_ultra: return "M3 Ultra"
+        case .mac_studio_m4_max: return "M4 Max"
+        /// Mac Pro
+        case .mac_pro_m2_ultra: return "M2 Ultra"
         }
     }
     
@@ -573,6 +765,37 @@ extension SLDeviceModeType {
         case .iPad_mini_6: return 2930
         case .iPad_mini_a17_pro: return 3780
         case .simulator: return 1000
+        /// MacBook Air
+        case .macbook_air_m1: return 3200
+        case .macbook_air_m2_13, .macbook_air_m2_15: return 3500
+        case .macbook_air_m3_13, .macbook_air_m3_15: return 4050
+        case .macbook_air_m4_13, .macbook_air_m4_15: return 4460
+        case .macbook_air_m5_13, .macbook_air_m5_15: return 4400
+        /// MacBook Pro
+        case .macbook_pro_13_m1, .macbook_pro_14_m1_pro, .macbook_pro_14_m1_max, .macbook_pro_16_m1_pro, .macbook_pro_16_m1_max: return 3200
+        case .macbook_pro_13_m2: return 3500
+        case .macbook_pro_14_m2_pro, .macbook_pro_14_m2_max, .macbook_pro_16_m2_pro, .macbook_pro_16_m2_max: return 3680
+        case .macbook_pro_14_m3, .macbook_pro_14_m3_pro, .macbook_pro_14_m3_max, .macbook_pro_16_m3_pro, .macbook_pro_16_m3_max: return 4050
+        case .macbook_pro_14_m4: return 4460
+        case .macbook_pro_14_m4_pro, .macbook_pro_14_m4_max, .macbook_pro_16_m4_pro, .macbook_pro_16_m4_max: return 4510
+        case .macbook_pro_14_m5, .macbook_pro_14_m5_pro, .macbook_pro_14_m5_max, .macbook_pro_16_m5_pro, .macbook_pro_16_m5_max: return 4400
+        /// Mac mini
+        case .mac_mini_m1: return 3200
+        case .mac_mini_m2: return 3500
+        case .mac_mini_m2_pro: return 3680
+        case .mac_mini_m4: return 4460
+        case .mac_mini_m4_pro: return 4510
+        /// iMac
+        case .imac_24_m1: return 3200
+        case .imac_24_m3: return 4050
+        case .imac_24_m4: return 4460
+        /// Mac Studio
+        case .mac_studio_m1_max, .mac_studio_m1_ultra: return 3200
+        case .mac_studio_m2_max, .mac_studio_m2_ultra: return 3680
+        case .mac_studio_m3_ultra: return 4050
+        case .mac_studio_m4_max: return 4510
+        /// Mac Pro
+        case .mac_pro_m2_ultra: return 3680
         }
     }
     
